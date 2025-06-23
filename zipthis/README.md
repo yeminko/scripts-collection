@@ -16,7 +16,7 @@ A bash script that creates zip archives while respecting `.gitignore` rules and 
 1. Clone or download the script:
 
    ```bash
-   curl -O https://raw.githubusercontent.com/scripts-collection/zipthis/zipthis.sh
+   curl -O https://raw.githubusercontent.com/yeminko/scripts-collection/main/zipthis/zipthis.sh
    ```
 
 2. Make it executable:
