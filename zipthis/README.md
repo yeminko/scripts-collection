@@ -119,23 +119,6 @@ The script provides clear error messages for common issues:
 - Complex gitignore patterns (like negation with `!`) have limited support
 - Requires the `zip` command to be available
 
-## Contributing
-
-Feel free to submit issues, fork the repository, and create pull requests for any improvements.
-
-## License
-
-This script is released under the MIT License. See LICENSE file for details.
-
-## Changelog
-
-### v1.0.0
-
-- Initial release
-- Basic .gitignore processing
-- .git directory exclusion
-- Archive statistics display
-
 ---
 
 **💡 Tip**: Use this script to create clean archives of your projects without accidentally including build artifacts, dependencies, or sensitive files listed in your `.gitignore`!
