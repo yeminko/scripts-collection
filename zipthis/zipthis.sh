@@ -64,23 +64,26 @@ if [ -f "$GITIGNORE_PATH" ]; then
         
         # Handle different gitignore patterns
         if [[ "$pattern" == /* ]]; then
-            # Pattern starts with / - match from root
-            exclude_pattern="$FOLDER_NAME${pattern}"
+            # Pattern starts with / - match from root (remove leading /)
+            clean_pattern="${pattern#/}"
+            exclude_pattern="$FOLDER_NAME/$clean_pattern"
+            # Add exclusion for the pattern and all subdirectories
+            ZIP_CMD="$ZIP_CMD -x '$exclude_pattern' '$exclude_pattern/*'"
         elif [[ "$pattern" == */ ]]; then
             # Pattern ends with / - it's a directory
             exclude_pattern="$FOLDER_NAME/$pattern*"
+            ZIP_CMD="$ZIP_CMD -x '$exclude_pattern'"
         elif [[ "$pattern" == */* ]]; then
             # Pattern contains / - match relative path
             exclude_pattern="$FOLDER_NAME/$pattern"
+            ZIP_CMD="$ZIP_CMD -x '$exclude_pattern' '$exclude_pattern/*'"
         else
-            # Simple pattern - match anywhere
-            exclude_pattern="*/$pattern"
-            # Also match in root
-            ZIP_CMD="$ZIP_CMD -x '$FOLDER_NAME/$pattern'"
+            # Simple pattern - match anywhere (both in root and subdirectories)
+            # Match in root directory
+            ZIP_CMD="$ZIP_CMD -x '$FOLDER_NAME/$pattern' '$FOLDER_NAME/$pattern/*'"
+            # Match in any subdirectory
+            ZIP_CMD="$ZIP_CMD -x '$FOLDER_NAME/*/$pattern' '$FOLDER_NAME/*/$pattern/*'"
         fi
-        
-        # Add exclusion to zip command
-        ZIP_CMD="$ZIP_CMD -x '$exclude_pattern'"
         
         echo "  Excluding: $pattern"
         
