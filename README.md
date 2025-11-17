@@ -38,9 +38,10 @@ chmod +x example-script.sh
 
 ## Scripts
 
-| Script             | Description                                                                |
-|--------------------|----------------------------------------------------------------------------|
-| zipthis/zipthis.sh | Creates zip archives of folders, respecting .gitignore and excluding .git.  |
+| Script               | Description                                                                |
+| -------------------- | -------------------------------------------------------------------------- |
+| openthis/openthis.sh | Quick VS Code project launcher using configuration files for fast access.  |
+| zipthis/zipthis.sh   | Creates zip archives of folders, respecting .gitignore and excluding .git. |
 
 ## Contributing
 
