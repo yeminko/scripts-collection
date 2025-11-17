@@ -1,0 +1,9 @@
+# This is the configuration file template for the OpenThis script.
+# Rename the file to ".openthis"
+
+# Main projects
+frontend=/path/to/your/frontend/project
+backend=/path/to/your/backend/project
+
+# Optional: Load additional projects
+CUSTOM_CONFIG_PATH=~/Desktop/more-projects.txt
